@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@100;300;500;700&display=swap");
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+nav {
+  padding: 1rem;
+}
+
+body {
+  padding: 0.5rem 0.7rem 4rem 0.7rem;
+  margin: 0;
+  font-family: "Overpass", sans-serif;
+  background: rgb(246, 250, 255);
+}
+button {
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.booklist-container {
+  display: grid;
+  place-content: center;
+}
+.main-container {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  font-size: 33.75px;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 992px) {
+  h1 {
+    font-size: 113.91px;
+  }
+}
