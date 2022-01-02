@@ -6,28 +6,25 @@ import Modal from "./components/Modal";
 import BookList from "./components/BooksList";
 import BookForm from "./components/BookForm";
 import useToggle from "./hooks/useToggle";
-import { BiBookAdd } from "react-icons/bi";
+import { BiPlus } from "react-icons/bi";
+import "./styles/AddBookButton.css";
 
 function App() {
   const [value, toggleValue] = useToggle(false);
   return (
-    <div className="App">
+    <div className="app">
       <Navbar />
-      <header>
-        <h1>The Librarian</h1>
-      </header>
-
+      <button className="add-btn" onClick={toggleValue}>
+        <BiPlus />
+      </button>
       <BooksContextProvider>
-        <button className="add-btn" onClick={toggleValue}>
-          add book <BiBookAdd />
-        </button>
         {value && (
           <Modal toggleValue={toggleValue}>
             <BookForm toggleValue={toggleValue} />
           </Modal>
         )}
         <section className="booklist-container">
-          <BookList />
+          <BookList toggleValue={toggleValue} />
         </section>
       </BooksContextProvider>
     </div>
