@@ -1,0 +1,39 @@
+.pagination-container {
+  padding: 0.5rem;
+  width: 100%;
+}
+.pagination-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+.pagination-el {
+  padding: 0.4rem 1rem;
+  margin-left: 2px;
+  background: rgb(255, 255, 255);
+  cursor: pointer;
+  color: rgb(15, 2, 46);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  border-radius: 5%;
+}
+
+.pagination-el.active {
+  background: rgb(15, 2, 46);
+  color: rgb(255, 255, 255);
+}
+.pagination-el.active a {
+  color: rgb(255, 255, 255);
+}
+
+.pagination-el a {
+  color: rgb(15, 2, 46);
+  text-decoration: none;
+}
+
+.arrow {
+  background: transparent;
+  padding: 0.3rem;
+  font-size: 2rem;
+}
