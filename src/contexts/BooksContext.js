@@ -1,33 +1,17 @@
 import React, { createContext, useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 export const BooksContext = createContext();
 
 const BooksContextProvider = (props) => {
-  const [popup, setPopup] = useState({ isOn: false, type: null });
-  const [allBooks, setAllBooks] = useState([
-    {
-      id: uuidv4(),
-      title: "Lord of the Rings",
-      author: "Tolkien",
-      isRead: "read",
-      genre: "fantasy",
-    },
-  ]);
+  const [notification, setNotification] = useState({ isOn: false, type: null });
+  const [allBooks, setAllBooks] = useState([]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setPopup({ isOn: false, type: null });
+      setNotification({ isOn: false, type: null });
     }, 3000);
     return () => clearTimeout(timer);
-  }, [popup]);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setPopupDelete(false);
-  //   }, 3000);
-  //   return () => clearTimeout(timer);
-  // }, [popupDelete]);
+  }, [notification]);
 
   useEffect(() => {
     setAllBooks(JSON.parse(localStorage.getItem("allBooks")));
@@ -41,7 +25,7 @@ const BooksContextProvider = (props) => {
     setAllBooks((prevBooks) => {
       return [newBook, ...prevBooks];
     });
-    setPopup({ isOn: true, type: "added!" });
+    setNotification({ isOn: true, type: "added!" });
   };
   const deleteBook = (id) => {
     setAllBooks((prevBooks) => {
@@ -49,14 +33,14 @@ const BooksContextProvider = (props) => {
         return id !== book.id;
       });
     });
-    setPopup({ isOn: true, type: "deleted!" });
+    setNotification({ isOn: true, type: "deleted!" });
   };
 
   const updateBook = (id, updatedBook) => {
     setAllBooks((prevBooks) => {
       return prevBooks.map((book) => (book.id === id ? updatedBook : book));
     });
-    setPopup({ isOn: true, type: "edited!" });
+    setNotification({ isOn: true, type: "edited!" });
   };
 
   return (
@@ -66,7 +50,7 @@ const BooksContextProvider = (props) => {
         addBook,
         deleteBook,
         updateBook,
-        popup,
+        notification,
       }}
     >
       {props.children}
