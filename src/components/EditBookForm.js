@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { BooksContext } from "../contexts/BooksContext";
 import SelectGenre from "./SelectGenre";
 import "../styles/BookForm.css";
@@ -11,7 +11,6 @@ export default function EditBookForm({ toggleValue, editionBook }) {
   const [genre, setGenre] = useState(editionBook.genre);
   const [isRead, setIsRead] = useState(editionBook.isRead);
   const { updateBook } = useContext(BooksContext);
-  const inputRef = useRef();
   const updatedBook = { id, title, author, genre, isRead };
 
   const handleSubmit = (e) => {
@@ -20,19 +19,13 @@ export default function EditBookForm({ toggleValue, editionBook }) {
     toggleValue(false);
   };
 
-  useEffect(() => {
-    if (toggleValue) {
-      inputRef.current.focus();
-    }
-  }, [toggleValue]);
-
   return (
     <div className="bg">
       <form onSubmit={handleSubmit}>
         <label>
           <span>Title</span>
           <input
-            ref={inputRef}
+            autoFocus={true}
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
