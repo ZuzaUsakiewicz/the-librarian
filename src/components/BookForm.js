@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { BooksContext } from "../contexts/BooksContext";
 import SelectGenre from "./SelectGenre";
 import "../styles/BookForm.css";
@@ -10,7 +10,14 @@ export default function BookForm({ toggleValue }) {
   const [author, setAuthor] = useState("");
   const [genre, setGenre] = useState("fantasy");
   const [isRead, setIsRead] = useState(false);
+  const inputRef = useRef();
   const { addBook } = useContext(BooksContext);
+
+  useEffect(() => {
+    if (toggleValue) {
+      inputRef.current.focus();
+    }
+  }, [toggleValue]);
 
   const resetForm = () => {
     setTitle("");
@@ -39,6 +46,7 @@ export default function BookForm({ toggleValue }) {
           <span>Title</span>
           <input
             type="text"
+            ref={inputRef}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="the title of the book"

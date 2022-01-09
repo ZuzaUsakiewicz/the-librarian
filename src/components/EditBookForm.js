@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { BooksContext } from "../contexts/BooksContext";
 import SelectGenre from "./SelectGenre";
 import "../styles/BookForm.css";
+import { BiX } from "react-icons/bi";
 
 export default function EditBookForm({ toggleValue, editionBook }) {
   const id = editionBook.id;
@@ -10,6 +11,7 @@ export default function EditBookForm({ toggleValue, editionBook }) {
   const [genre, setGenre] = useState(editionBook.genre);
   const [isRead, setIsRead] = useState(editionBook.isRead);
   const { updateBook } = useContext(BooksContext);
+  const inputRef = useRef();
   const updatedBook = { id, title, author, genre, isRead };
 
   const handleSubmit = (e) => {
@@ -18,12 +20,19 @@ export default function EditBookForm({ toggleValue, editionBook }) {
     toggleValue(false);
   };
 
+  useEffect(() => {
+    if (toggleValue) {
+      inputRef.current.focus();
+    }
+  }, [toggleValue]);
+
   return (
     <div className="bg">
       <form onSubmit={handleSubmit}>
         <label>
-          <span>Title:</span>
+          <span>Title</span>
           <input
+            ref={inputRef}
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -32,7 +41,7 @@ export default function EditBookForm({ toggleValue, editionBook }) {
           />
         </label>
         <label>
-          <span>Author:</span>
+          <span>Author</span>
           <input
             type="text"
             value={author}
@@ -42,26 +51,35 @@ export default function EditBookForm({ toggleValue, editionBook }) {
           />
         </label>
         <SelectGenre setGenre={setGenre} firstOption={editionBook.genre} />
-        <input
-          type="radio"
-          value="unread"
-          id="unread"
-          onChange={(e) => setIsRead(false)}
-          name="isRead"
-        />
-        <label htmlFor="unread">unread</label>
-
-        <input
-          type="radio"
-          value="read"
-          id="read"
-          onChange={(e) => setIsRead(true)}
-          name="isRead"
-        />
-        <label htmlFor="read">read</label>
+        <div className="radio-buttons">
+          <div className="read-radio">
+            <input
+              type="radio"
+              value="unread"
+              id="unread"
+              onChange={(e) => setIsRead(false)}
+              name="isRead"
+              checked={isRead ? false : true}
+            />
+            <label htmlFor="unread">unread</label>
+          </div>
+          <div className="read-radio">
+            <input
+              type="radio"
+              value="read"
+              id="read"
+              onChange={(e) => setIsRead(true)}
+              name="isRead"
+              checked={isRead ? true : false}
+            />
+            <label htmlFor="read">read</label>
+          </div>
+        </div>
         <button>Update</button>
       </form>
-      <button onClick={() => toggleValue(false)}>Close</button>
+      <button onClick={() => toggleValue(false)} className="close-btn">
+        <BiX />
+      </button>
     </div>
   );
 }
