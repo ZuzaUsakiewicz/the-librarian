@@ -18,15 +18,19 @@ export default function BooksList() {
   return (
     <div className="main-container">
       {notification.isOn ? (
-        <Notification> {notification.type} </Notification>
+        <Notification>
+          {notification.icon} {notification.type}
+        </Notification>
       ) : null}
+      {currentBooks <= 0 ? null : (
+        <Pagination
+          booksPerPage={booksPerPage}
+          totalBooks={allBooks.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
+      )}
 
-      <Pagination
-        booksPerPage={booksPerPage}
-        totalBooks={allBooks.length}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
       {currentBooks.map((book) => {
         return <Book book={book} key={book.id} />;
       })}
