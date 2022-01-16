@@ -1,0 +1,68 @@
+.single-book {
+  width: 80vw;
+  max-width: 300px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  overflow-wrap: break-word;
+  margin: 5px 0;
+  background: rgb(253, 253, 253);
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+.read-badge {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.read-status {
+  width: 100px;
+  height: 60px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 12px 15px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.read-status.read {
+  color: rgb(72, 199, 110);
+}
+.read-status.unread {
+  color: rgb(226, 79, 79);
+}
+.row {
+  width: 100%;
+  padding: 0.6rem 2rem 0.6rem 1rem;
+  text-transform: capitalize;
+}
+.row :first-child {
+  font-weight: 700;
+}
+.row :last-child {
+  font-style: italic;
+}
+
+@media screen and (min-width: 992px) {
+  .single-book {
+    padding: 2rem;
+  }
+  .read-status {
+    left: 0.5rem;
+    width: 300px;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .single-book {
+    max-width: 260px;
+  }
+}
