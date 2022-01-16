@@ -1,0 +1,46 @@
+.icon-container {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  position: relative;
+  filter: drop-shadow(0 2px 2px rgba(50, 50, 0, 0.5));
+}
+.icon-container span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(110, 192, 218);
+  border-radius: 50%;
+  padding: 0.8rem;
+  text-align: center;
+  color: #fff;
+}
+
+.icon-container i {
+  /* background: rgba(2, 2, 37, 0.041); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem;
+  font-size: 1rem;
+  border-radius: 50%;
+}
+.icon-container h6 {
+  position: absolute;
+  font-size: 0.7rem;
+  bottom: -5%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  padding: 0.2rem 0.7rem;
+  background: rgba(5, 5, 78, 0.637);
+  color: white;
+  text-shadow: cornsilk;
+  z-index: 100;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: 992px) {
+  .icon-container span {
+    font-size: 3rem;
+  }
+}
