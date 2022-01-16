@@ -1,0 +1,23 @@
+.action-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  align-items: flex-end;
+}
+.book-btn {
+  font-size: 1.5rem;
+  transition: transform 0.2s ease-in-out;
+  background: transparent;
+}
+
+.book-btn:hover {
+  transform: translateY(3px);
+}
+.delete {
+  color: rgb(220, 69, 123);
+  padding: 0 0.2rem;
+}
+
+.edit {
+  color: rgb(126, 37, 206);
+}
