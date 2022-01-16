@@ -1,19 +1,16 @@
-import React from "react";
+import { useContext } from "react";
+import { BooksContext } from "../contexts/BooksContext";
+import "../styles/BookForm.css";
 
 export default function SelectGenre({ setGenre, firstOption }) {
-  const genreValues = [
-    { name: "fantasy" },
-    { name: "thriller" },
-    { name: "horror" },
-    { name: "history" },
-    { name: "other" },
-  ];
+  const { genreValues } = useContext(BooksContext);
+
   const filteredGenreValues = genreValues.filter((element) => {
     return element.name !== firstOption;
   });
   return (
     <label>
-      <span>Genre:</span>
+      <span>Genre</span>
 
       {firstOption === undefined ? (
         <select onChange={(e) => setGenre(e.target.value)}>

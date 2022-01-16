@@ -1,5 +1,8 @@
 import React, { createContext, useState, useEffect } from "react";
 import { BiCheckCircle } from "react-icons/bi";
+import { GiSherlockHolmes, GiDoubleDragon, GiCastle } from "react-icons/gi";
+import { RiKnifeBloodLine } from "react-icons/ri";
+import { BsQuestionCircle } from "react-icons/bs";
 
 export const BooksContext = createContext();
 
@@ -10,6 +13,14 @@ const BooksContextProvider = (props) => {
     icon: null,
   });
   const [allBooks, setAllBooks] = useState([]);
+
+  const genreValues = [
+    { id: 1, name: "fantasy", icon: <GiDoubleDragon /> },
+    { id: 2, name: "thriller", icon: <GiSherlockHolmes /> },
+    { id: 3, name: "horror", icon: <RiKnifeBloodLine /> },
+    { id: 4, name: "history", icon: <GiCastle /> },
+    { id: 5, name: "other", icon: <BsQuestionCircle /> },
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -68,6 +79,7 @@ const BooksContextProvider = (props) => {
     <BooksContext.Provider
       value={{
         allBooks,
+        genreValues,
         addBook,
         deleteBook,
         updateBook,

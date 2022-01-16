@@ -11,7 +11,7 @@ export default function BookForm({ toggleValue }) {
   const [genre, setGenre] = useState("fantasy");
   const [isRead, setIsRead] = useState(false);
   const inputRef = useRef();
-  const { addBook } = useContext(BooksContext);
+  const { addBook, genreValues } = useContext(BooksContext);
 
   useEffect(() => {
     if (toggleValue) {
@@ -63,32 +63,37 @@ export default function BookForm({ toggleValue }) {
             aria-label="author"
           />
         </label>
-        <SelectGenre setGenre={setGenre} />
+        <SelectGenre setGenre={setGenre} genreValues={genreValues} />
         <div className="radio-buttons">
+          <p>is read?</p>
           <div className="read-radio">
-            <input
-              type="radio"
-              value="unread"
-              id="unread"
-              onChange={(e) => setIsRead(false)}
-              name="isRead"
-              checked={isRead ? false : true}
-            />
-            <label htmlFor="unread">unread</label>
+            <label htmlFor="unread">
+              <input
+                type="radio"
+                value="unread"
+                id="unread"
+                onChange={(e) => setIsRead(false)}
+                name="isRead"
+                checked={isRead ? false : true}
+              />
+              no
+            </label>
           </div>
           <div className="read-radio">
-            <input
-              type="radio"
-              value="read"
-              id="read"
-              onChange={(e) => setIsRead(true)}
-              name="isRead"
-              checked={isRead ? true : false}
-            />
-            <label htmlFor="read">read</label>
+            <label htmlFor="read">
+              <input
+                type="radio"
+                value="read"
+                id="read"
+                onChange={(e) => setIsRead(true)}
+                name="isRead"
+                checked={isRead ? true : false}
+              />
+              y
+            </label>
           </div>
         </div>
-        <button>Submit</button>
+        <button className="submit-btn">Submit</button>
       </form>
 
       <button onClick={() => toggleValue(false)} className="close-btn">
