@@ -14,6 +14,7 @@ export default function Pagination({
   }
   let paginationLimit_1 = currentPage > 1 ? currentPage - 2 : currentPage - 1;
   let paginationLimit_2 = currentPage + 1;
+
   return (
     <div className="pagination-container">
       <ul className="pagination-list">
@@ -29,7 +30,9 @@ export default function Pagination({
         {pageNumbers
           .slice(paginationLimit_1, paginationLimit_2)
           .map((number) => (
-            <li
+            <a
+              onClick={() => paginate(number)}
+              href="!#"
               key={number}
               className={`${
                 number === currentPage
@@ -37,10 +40,8 @@ export default function Pagination({
                   : "pagination-el"
               }`}
             >
-              <a onClick={() => paginate(number)} href="!#">
-                {number}
-              </a>
-            </li>
+              <li>{number}</li>{" "}
+            </a>
           ))}
         {currentPage < pageNumbers.length ? (
           <button className="arrow" onClick={() => paginate(currentPage + 1)}>
