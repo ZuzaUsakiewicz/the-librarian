@@ -1,0 +1,39 @@
+.confirm-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.confirm-container h5 {
+  font-weight: 300;
+}
+
+.confirm-container div {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-btn {
+  padding: 0.8rem 1.3rem;
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+  font-size: 0.5rem;
+}
+
+.confirm-btn.confirm {
+  color: rgb(255, 255, 255);
+  background: rgb(220, 69, 123);
+}
+
+.confirm-btn.reject {
+  color: rgb(69, 104, 220);
+  background: transparent;
+}
+
+@media screen and (min-width: 992px) {
+  .confirm-btn {
+    font-size: 0.8rem;
+  }
+}
