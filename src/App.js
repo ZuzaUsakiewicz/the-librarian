@@ -1,5 +1,4 @@
 import "./App.css";
-import React from "react";
 import Navbar from "./components/Navbar";
 import BooksContextProvider from "./contexts/BooksContext";
 import Modal from "./components/Modal";
@@ -11,19 +10,21 @@ import "./styles/AddBookButton.css";
 
 function App() {
   const [value, toggleValue] = useToggle(false);
+
   return (
     <div className="app">
       <Navbar />
-      <button className="add-btn" onClick={toggleValue}>
-        <BiPlus />
-      </button>
+
       <BooksContextProvider>
         {value && (
-          <Modal toggleValue={toggleValue}>
+          <Modal toggleValue={toggleValue} value={value}>
             <BookForm toggleValue={toggleValue} />
           </Modal>
         )}
         <section className="booklist-container">
+          <button className="add-btn" onClick={toggleValue}>
+            <BiPlus />
+          </button>
           <BookList toggleValue={toggleValue} />
         </section>
       </BooksContextProvider>
