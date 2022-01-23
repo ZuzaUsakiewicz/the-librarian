@@ -2,12 +2,20 @@
   padding: 0.5rem;
   width: 100%;
 }
+/* a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+} */
 .pagination-list {
   list-style-type: none;
   display: flex;
   justify-content: center;
 }
 .pagination-el {
+  position: relative;
   padding: 0.4rem 1rem;
   margin-left: 2px;
   background: rgb(255, 255, 255);
@@ -17,6 +25,7 @@
   display: flex;
   align-items: center;
   border-radius: 5%;
+  text-decoration: none;
 }
 
 .pagination-el.active {
@@ -25,11 +34,6 @@
 }
 .pagination-el.active a {
   color: rgb(255, 255, 255);
-}
-
-.pagination-el a {
-  color: rgb(15, 2, 46);
-  text-decoration: none;
 }
 
 .arrow {
