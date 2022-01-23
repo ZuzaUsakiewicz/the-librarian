@@ -1,42 +1,30 @@
 .icon-container {
-  display: flex;
-  justify-content: center;
   font-size: 2rem;
   position: relative;
-  filter: drop-shadow(0 2px 2px rgba(50, 50, 0, 0.5));
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0 0 0.6rem;
+  width: 100%;
+  /* filter: drop-shadow(0 2px 2px rgba(50, 50, 0, 0.5)); */
 }
 .icon-container span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(110, 192, 218);
   border-radius: 50%;
   padding: 0.8rem;
   text-align: center;
-  color: #fff;
+  color: rgba(166, 208, 224, 0.205);
 }
 
 .icon-container i {
-  /* background: rgba(2, 2, 37, 0.041); */
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.4rem;
-  font-size: 1rem;
+  font-size: 7rem;
   border-radius: 50%;
-}
-.icon-container h6 {
-  position: absolute;
-  font-size: 0.7rem;
-  bottom: -5%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  padding: 0.2rem 0.7rem;
-  background: rgba(5, 5, 78, 0.637);
-  color: white;
-  text-shadow: cornsilk;
-  z-index: 100;
-  border-radius: 4px;
+  z-index: 0;
 }
 
 @media screen and (min-width: 992px) {
