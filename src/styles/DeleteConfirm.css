@@ -11,15 +11,15 @@
 .confirm-container div {
   padding-top: 1rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .confirm-btn {
-  padding: 0.8rem 1.3rem;
+  padding: 0.8rem 1.5rem;
   letter-spacing: 0.1rem;
-  font-weight: 700;
-  font-size: 0.5rem;
+  font-weight: 500;
 }
 
 .confirm-btn.confirm {
@@ -33,6 +33,9 @@
 }
 
 @media screen and (min-width: 992px) {
+  .confirm-container div {
+    flex-direction: row;
+  }
   .confirm-btn {
     font-size: 0.8rem;
   }
