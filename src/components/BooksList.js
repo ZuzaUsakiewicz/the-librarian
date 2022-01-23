@@ -6,7 +6,7 @@ import { BooksContext } from "../contexts/BooksContext";
 
 export default function BooksList() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [booksPerPage] = useState(5);
+  const [booksPerPage] = useState(6);
 
   const { allBooks, notification } = useContext(BooksContext);
 
@@ -30,10 +30,15 @@ export default function BooksList() {
           currentPage={currentPage}
         />
       )}
-
-      {currentBooks.map((book) => {
-        return <Book book={book} key={book.id} />;
-      })}
+      <div className="flex-container">
+        {currentBooks.map((book) => {
+          return <Book book={book} key={book.id} />;
+        })}
+      </div>
+      <h6 className="total-books">
+        You have {allBooks.length} {allBooks.length <= 1 ? "book" : "books"} in
+        your library
+      </h6>
     </div>
   );
 }
