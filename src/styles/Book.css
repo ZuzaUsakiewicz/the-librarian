@@ -30,6 +30,7 @@
   padding: 12px 15px;
   text-align: center;
   font-size: 1rem;
+  z-index: 2;
 }
 
 .read-status.read {
@@ -42,12 +43,18 @@
   width: 100%;
   padding: 0.6rem 2rem 0.6rem 1rem;
   text-transform: capitalize;
+  z-index: 2;
 }
 .row :first-child {
   font-weight: 700;
 }
-.row :last-child {
+.row :nth-child(2) {
   font-style: italic;
+}
+
+.row :last-child {
+  text-transform: lowercase;
+  padding-left: 0.5rem;
 }
 
 @media screen and (min-width: 992px) {
