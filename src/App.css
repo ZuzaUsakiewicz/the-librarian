@@ -8,13 +8,20 @@
 }
 nav {
   padding: 1rem;
+  display: flex;
+}
+
+nav a {
+  color: rgb(15, 2, 46);
+  font-size: 1rem;
 }
 
 body {
   padding: 0.5rem 0.7rem 4rem 0.7rem;
   margin: 0;
   font-family: "Overpass", sans-serif;
-  background: rgb(246, 250, 255);
+  background: rgb(246, 248, 252);
+  color: rgb(15, 2, 46);
 }
 button {
   cursor: pointer;
@@ -26,7 +33,9 @@ button {
 .booklist-container {
   display: grid;
   place-content: center;
+  position: relative;
 }
+
 .main-container {
   width: 100%;
   max-width: 1300px;
@@ -35,13 +44,33 @@ button {
   align-items: center;
   justify-content: center;
 }
+
 h1 {
   font-size: 33.75px;
   font-weight: 700;
 }
 
+.total-books {
+  padding-top: 1rem;
+}
+
 @media screen and (min-width: 992px) {
+  .flex-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
   h1 {
     font-size: 113.91px;
+  }
+
+  nav a {
+    font-size: 2rem;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  nav a:hover {
+    transform: translateY(-0.3rem);
   }
 }
