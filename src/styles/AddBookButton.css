@@ -1,0 +1,35 @@
+.add-btn {
+  position: fixed;
+  bottom: 0.3rem;
+  right: 0.3rem;
+  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  background: rgb(69, 104, 220);
+  border-radius: 50%;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  font-size: 2rem;
+  z-index: 1000;
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+@media screen and (min-width: 992px) {
+  .add-btn {
+    position: absolute;
+    padding: 0.7rem;
+    width: 4rem;
+    height: 4rem;
+    font-size: 2.5rem;
+    top: -1rem;
+    right: -1rem;
+    clip-path: circle(75%);
+    transition: clip-path 1s;
+    transition: transform 0.3s ease-in-out;
+  }
+  .add-btn:hover {
+    transform: translateY(0.3rem);
+  }
+}
