@@ -1,8 +1,16 @@
 import React, { createContext, useState, useEffect } from "react";
 import { BiCheckCircle } from "react-icons/bi";
-import { GiSherlockHolmes, GiDoubleDragon, GiCastle } from "react-icons/gi";
-import { RiKnifeBloodLine } from "react-icons/ri";
+import {
+  GiSherlockHolmes,
+  GiDoubleDragon,
+  GiCastle,
+  GiBookmark,
+  GiBrokenHeart,
+  GiUnicorn,
+} from "react-icons/gi";
+import { RiKnifeBloodLine, RiAliensLine } from "react-icons/ri";
 import { BsQuestionCircle } from "react-icons/bs";
+import { BiMessageRoundedDots } from "react-icons/bi";
 
 export const BooksContext = createContext();
 
@@ -16,10 +24,15 @@ const BooksContextProvider = (props) => {
 
   const genreValues = [
     { id: 1, name: "fantasy", icon: <GiDoubleDragon /> },
-    { id: 2, name: "thriller", icon: <GiSherlockHolmes /> },
-    { id: 3, name: "horror", icon: <RiKnifeBloodLine /> },
-    { id: 4, name: "history", icon: <GiCastle /> },
-    { id: 5, name: "other", icon: <BsQuestionCircle /> },
+    { id: 2, name: "sci-fi", icon: <RiAliensLine /> },
+    { id: 3, name: "thriller", icon: <GiSherlockHolmes /> },
+    { id: 4, name: "horror", icon: <RiKnifeBloodLine /> },
+    { id: 5, name: "history", icon: <GiCastle /> },
+    { id: 6, name: "classic", icon: <GiBookmark /> },
+    { id: 7, name: "romance", icon: <GiBrokenHeart /> },
+    { id: 8, name: "young adult", icon: <GiUnicorn /> },
+    { id: 9, name: "graphic novel", icon: <BiMessageRoundedDots /> },
+    { id: 10, name: "other", icon: <BsQuestionCircle /> },
   ];
 
   useEffect(() => {
