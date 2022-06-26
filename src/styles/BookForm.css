@@ -1,0 +1,100 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.8rem;
+}
+
+input,
+select {
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid rgb(5, 5, 78);
+  border-radius: 0.1rem;
+  padding: 0.4rem 0.6rem 0.4rem 0.2rem;
+}
+input:focus {
+  border-bottom: 3px solid rgb(5, 5, 78);
+  outline: rgba(5, 5, 78, 0.5);
+}
+
+option {
+  padding: 0.2rem;
+  background: rgb(246, 248, 252);
+}
+.radio-buttons {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 0.5rem 0.5rem 0;
+  width: 100%;
+}
+
+.read-radio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  background: red;
+  width: 3rem;
+}
+.read-radio label {
+  position: relative;
+}
+
+.radio-input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.read-radio input:checked + div {
+  background: rgb(69, 104, 220);
+}
+.read-radio label div {
+  position: absolute;
+  transform: translate(-50%, 50%);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  background: rgb(5, 5, 78);
+  border-radius: 50%;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.read-radio input:checked + div::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgb(246, 248, 252);
+}
+
+.close-btn {
+  background: none;
+  font-size: 2rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.submit-btn {
+  padding: 0.8rem 1.5rem;
+  background: rgb(69, 104, 220);
+  color: #fff;
+  letter-spacing: 0.1rem;
+  font-weight: 500;
+  width: 100%;
+}
