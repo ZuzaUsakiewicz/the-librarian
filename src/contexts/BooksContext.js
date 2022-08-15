@@ -21,7 +21,6 @@ const BooksContextProvider = (props) => {
     icon: null,
   });
   const [allBooks, setAllBooks] = useState([]);
-
   const genreValues = [
     { id: 1, name: "fantasy", icon: <GiDoubleDragon /> },
     { id: 2, name: "sci-fi", icon: <RiAliensLine /> },
@@ -71,6 +70,7 @@ const BooksContextProvider = (props) => {
       type: "Book deleted!",
       icon: <BiCheckCircle />,
     });
+    window.location.reload(true);
   };
 
   // const deleteAllBooks = () => {
