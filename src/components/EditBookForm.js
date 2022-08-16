@@ -45,30 +45,33 @@ export default function EditBookForm({ toggleValue, editionBook }) {
         </label>
         <SelectGenre setGenre={setGenre} firstOption={editionBook.genre} />
         <div className="radio-buttons">
-          <div className="read-radio">
-            <input
-              type="radio"
-              value="unread"
-              id="unread"
-              onChange={(e) => setIsRead(false)}
-              name="isRead"
-              checked={isRead ? false : true}
-            />
-            <label htmlFor="unread">unread</label>
-          </div>
-          <div className="read-radio">
-            <input
-              type="radio"
-              value="read"
-              id="read"
-              onChange={(e) => setIsRead(true)}
-              name="isRead"
-              checked={isRead ? true : false}
-            />
-            <label htmlFor="read">read</label>
-          </div>
+          <input
+            className="radio-input"
+            type="radio"
+            value="unread"
+            id="unread"
+            onChange={(e) => setIsRead(false)}
+            name="isRead"
+            checked={isRead ? false : true}
+          />
+          <label htmlFor="unread" className="radio-label">
+            not read
+          </label>
+
+          <input
+            className="radio-input"
+            type="radio"
+            value="read"
+            id="read"
+            onChange={(e) => setIsRead(true)}
+            name="isRead"
+            checked={isRead ? true : false}
+          />
+          <label htmlFor="read" className="radio-label">
+            read
+          </label>
         </div>
-        <button>Update</button>
+        <button className="submit-btn">Update</button>
       </form>
       <button onClick={() => toggleValue(false)} className="close-btn">
         <BiX />
