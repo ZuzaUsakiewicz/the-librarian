@@ -28,58 +28,52 @@ option {
   padding: 0.2rem;
   background: rgb(246, 248, 252);
 }
+
 .radio-buttons {
+  padding: 0.3rem 0;
   display: flex;
-  align-items: center;
-  padding: 0.6rem 0.5rem 0.5rem 0;
   width: 100%;
-}
-
-.read-radio {
+  margin: 0.7rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 0.2rem 0.5rem;
-  background: red;
-  width: 3rem;
 }
-.read-radio label {
-  position: relative;
-}
-
 .radio-input {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display: none;
 }
 
-.read-radio input:checked + div {
-  background: rgb(69, 104, 220);
-}
-.read-radio label div {
-  position: absolute;
-  transform: translate(-50%, 50%);
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 2;
+.radio-label {
   cursor: pointer;
-  background: rgb(5, 5, 78);
-  border-radius: 50%;
-  width: 1.4rem;
-  height: 1.4rem;
+  position: relative;
+  font-family: inherit;
+  padding: 10px 20px;
+  width: 7rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s linear;
+  border-radius: 40px;
+  opacity: 0.4;
+  margin: 0 4px;
 }
-
-.read-radio input:checked + div::after {
+.radio-label::before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 10px;
-  transform: translate(-50%, -50%);
+  left: 8%;
+  top: 40%;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: rgb(246, 248, 252);
+  opacity: 0;
+  background: rgb(45, 216, 139);
+}
+.radio-input:checked + .radio-label::before {
+  opacity: 1;
+}
+
+.radio-input:checked + label {
+  color: white;
+  background-color: rgb(69, 104, 220);
+  opacity: 1;
 }
 
 .close-btn {
@@ -97,4 +91,5 @@ option {
   letter-spacing: 0.1rem;
   font-weight: 500;
   width: 100%;
+  border-radius: 6px;
 }
