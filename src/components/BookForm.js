@@ -28,8 +28,8 @@ export default function BookForm({ toggleValue }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newBook = {
-      title: title !== "" ? title : "title: undefined",
-      author: author !== "" ? author : "author: undefined",
+      title: title !== "" ? title : "undefined title",
+      author: author !== "" ? author : "undefined author",
       isRead: isRead,
       genre: genre,
       id: uuidv4(),
@@ -65,33 +65,31 @@ export default function BookForm({ toggleValue }) {
         </label>
         <SelectGenre setGenre={setGenre} genreValues={genreValues} />
         <div className="radio-buttons">
-          <p>is read?</p>
-          <div className="read-radio">
-            <label htmlFor="unread">
-              <input
-                type="radio"
-                value="unread"
-                id="unread"
-                onChange={(e) => setIsRead(false)}
-                name="isRead"
-                checked={isRead ? false : true}
-              />
-              no
-            </label>
-          </div>
-          <div className="read-radio">
-            <label htmlFor="read">
-              <input
-                type="radio"
-                value="read"
-                id="read"
-                onChange={(e) => setIsRead(true)}
-                name="isRead"
-                checked={isRead ? true : false}
-              />
-              y
-            </label>
-          </div>
+          <input
+            className="radio-input"
+            type="radio"
+            value="unread"
+            id="unread"
+            onChange={(e) => setIsRead(false)}
+            name="isRead"
+            checked={isRead ? false : true}
+          />
+          <label htmlFor="unread" className="radio-label">
+            {" "}
+            unread{" "}
+          </label>
+          <input
+            className="radio-input"
+            type="radio"
+            value="read"
+            id="read"
+            onChange={(e) => setIsRead(true)}
+            name="isRead"
+            checked={isRead ? true : false}
+          />
+          <label htmlFor="read" className="radio-label">
+            read
+          </label>
         </div>
         <button className="submit-btn">Submit</button>
       </form>
