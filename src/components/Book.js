@@ -36,13 +36,13 @@ export default function Book({ book }) {
                 <span className={item.name}>
                   <i>{item.icon}</i>
                 </span>
-                <h6>{item.name}</h6>
               </div>
             ) : null
           )}
         </div>
         <div className="row">
           <p>{book.author}</p> <p>{book.title}</p>
+          <h6>{book.genre}</h6>
         </div>
 
         <div className="action-buttons">
