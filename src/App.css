@@ -20,8 +20,9 @@ body {
   padding: 0.5rem 0.7rem 4rem 0.7rem;
   margin: 0;
   font-family: "Overpass", sans-serif;
-  background: rgb(246, 248, 252);
+  background: rgb(187, 219, 251);
   color: rgb(15, 2, 46);
+  min-height: 110vh;
 }
 button {
   cursor: pointer;
