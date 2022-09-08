@@ -22,7 +22,9 @@ export default function BooksList() {
           {notification.icon} {notification.type}
         </Notification>
       ) : null}
-      {currentBooks <= 0 ? null : (
+      {currentBooks <= 0 ? (
+        allBooks
+      ) : (
         <Pagination
           booksPerPage={booksPerPage}
           totalBooks={allBooks.length}
