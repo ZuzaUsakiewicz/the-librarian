@@ -20,7 +20,15 @@ const BooksContextProvider = (props) => {
     type: null,
     icon: null,
   });
-  const [allBooks, setAllBooks] = useState([]);
+  const [allBooks, setAllBooks] = useState([
+    {
+      title: "undefined title",
+      author: "undefined author",
+      isRead: true,
+      genre: "fantasy",
+      id: 0,
+    },
+  ]);
   const genreValues = [
     { id: 1, name: "fantasy", icon: <GiDoubleDragon /> },
     { id: 2, name: "sci-fi", icon: <RiAliensLine /> },
