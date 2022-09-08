@@ -12,7 +12,9 @@ export default function BooksList() {
 
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
-  const currentBooks = allBooks.slice(indexOfFirstBook, indexOfLastBook);
+  const currentBooks = allBooks
+    ? allBooks.slice(indexOfFirstBook, indexOfLastBook)
+    : "please, wait or refresh page";
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
