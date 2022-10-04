@@ -40,8 +40,8 @@ export default function BooksList() {
         })}
       </div>
       <h6 className="total-books">
-        You have {allBooks.length} {allBooks.length <= 1 ? "book" : "books"} in
-        your library
+        You have {allBooks ? allBooks.length : 0}
+        {allBooks.length >= 1 ? " books" : " book"} in your library
       </h6>
     </div>
   );
