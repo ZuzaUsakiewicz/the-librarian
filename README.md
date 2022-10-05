@@ -4,6 +4,8 @@
 
 ### Live version: [The Librarian App](https://z-the-librarian.netlify.app/)
 
+\*Disclaimer: there's a bug I'm currently working on to fix it: you need to refresh the page to see the app. Sorry for inconvenience!
+
 ## Table of contents
 
 - [General info](#general-info)
