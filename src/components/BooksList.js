@@ -35,9 +35,11 @@ export default function BooksList() {
         />
       )}
       <div className="flex-container">
-        {currentBooks.map((book) => {
-          return <Book book={book} key={book.id} />;
-        })}
+        {currentBooks === 0
+          ? "add your first book"
+          : currentBooks.map((book) => {
+              return <Book book={book} key={book.id} />;
+            })}
       </div>
       <h6 className="total-books">
         You have {allBooks ? allBooks.length : 0}
