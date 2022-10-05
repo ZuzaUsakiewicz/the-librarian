@@ -29,7 +29,7 @@ export default function BooksList() {
       ) : (
         <Pagination
           booksPerPage={booksPerPage}
-          totalBooks={allBooks.length}
+          totalBooks={allBooks ? allBooks.length : 1}
           paginate={paginate}
           currentPage={currentPage}
         />
@@ -41,7 +41,7 @@ export default function BooksList() {
       </div>
       <h6 className="total-books">
         You have {allBooks ? allBooks.length : 0}
-        {allBooks.length >= 1 ? " books" : " book"} in your library
+        {allBooks?.length >= 2 ? " books" : " book"} in your library
       </h6>
     </div>
   );
