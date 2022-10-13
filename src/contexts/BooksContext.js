@@ -22,11 +22,18 @@ const BooksContextProvider = (props) => {
   });
   const [allBooks, setAllBooks] = useState([
     {
-      title: "undefined title",
-      author: "undefined author",
+      title: "Fellowship of the Ring",
+      author: "Tolkien",
       isRead: true,
       genre: "fantasy",
-      id: 0,
+      id: 1,
+    },
+    {
+      title: "Misery",
+      author: "Stephen King",
+      isRead: false,
+      genre: "horror",
+      id: 2,
     },
   ]);
   const genreValues = [
@@ -55,7 +62,7 @@ const BooksContextProvider = (props) => {
 
   useEffect(() => {
     localStorage.setItem("allBooks", JSON.stringify(allBooks));
-  });
+  }, [allBooks]);
 
   const addBook = (newBook) => {
     setAllBooks((prevBooks) => {
@@ -80,10 +87,6 @@ const BooksContextProvider = (props) => {
     });
     window.location.reload(true);
   };
-
-  // const deleteAllBooks = () => {
-  //   localStorage.removeItem("allBooks");
-  // };
 
   const updateBook = (id, updatedBook) => {
     setAllBooks((prevBooks) => {
