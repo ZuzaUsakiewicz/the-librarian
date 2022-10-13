@@ -7,16 +7,13 @@ import { BooksContext } from "../contexts/BooksContext";
 export default function BooksList() {
   const [currentPage, setCurrentPage] = useState(1);
   const [booksPerPage] = useState(6);
-
   const { allBooks, notification } = useContext(BooksContext);
-
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
-  const currentBooks = allBooks
-    ? allBooks.slice(indexOfFirstBook, indexOfLastBook)
-    : "please, wait or refresh page";
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  let currentBooks = allBooks.slice(indexOfFirstBook, indexOfLastBook);
+
   return (
     <div className="main-container">
       {notification.isOn ? (
@@ -31,15 +28,13 @@ export default function BooksList() {
           booksPerPage={booksPerPage}
           totalBooks={allBooks ? allBooks.length : 1}
           paginate={paginate}
-          currentPage={currentPage}
+          currentPage={currentPage ? currentPage : 1}
         />
       )}
       <div className="flex-container">
-        {currentBooks === 0
-          ? "add your first book"
-          : currentBooks.map((book) => {
-              return <Book book={book} key={book.id} />;
-            })}
+        {currentBooks.map((book) => {
+          return <Book book={book} key={book.id} />;
+        })}
       </div>
       <h6 className="total-books">
         You have {allBooks ? allBooks.length : 0}
